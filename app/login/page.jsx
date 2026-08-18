@@ -1,5 +1,9 @@
+"use client";
+
 import React from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import SocialButton from "../../components/socialbuttons";
+
 const Login = () => {
   return (
     <div className="text-white min-h-screen flex flex-col items-center justify-center">
@@ -51,6 +55,9 @@ const Login = () => {
           text="GitHub"
           bgColor="#181717"
           hoverBg="#333333"
+          onClick={() => {
+            signIn("github");
+          }}
         />
 
         <SocialButton

@@ -6,6 +6,7 @@ const SocialButton = ({
   text,
   bgColor = "#312e81",
   hoverBg = "#4338ca",
+  onClick,
 }) => {
   return (
     <button
@@ -16,6 +17,7 @@ const SocialButton = ({
         border: "none",
         cursor: "pointer",
       }}
+      onClick={onClick}
       onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = hoverBg)}
       onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = bgColor)}
     >
