@@ -6,14 +6,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   const { data: session } = useSession();
-  if (session) {
-    return (
-      <>
-        Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
-    );
-  }
+
   return (
     <nav className="bg-indigo-950 text-white flex justify-between px-4 h-16 items-center">
       <Link href="/">
@@ -26,10 +19,24 @@ const Navbar = () => {
           <span> BuyMeABrownie</span>
         </div>
       </Link>
-      <div>
-        <Link href={"/login"}>
-          <LoginButton />
-        </Link>
+      <div className="flex items-center gap-4">
+        {session ? (
+          <>
+            <button className="bg-white text-black px-4 py-2 rounded-lg font-semibold hover:bg-gray-200 transition">
+              Dashboard
+            </button>
+            <button
+              onClick={() => signOut({ callbackUrl: "/login" })}
+              className="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link href={"/login"}>
+            <LoginButton />
+          </Link>
+        )}
       </div>
     </nav>
   );

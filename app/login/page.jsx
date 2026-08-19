@@ -55,9 +55,7 @@ const Login = () => {
           text="GitHub"
           bgColor="#181717"
           hoverBg="#333333"
-          onClick={() => {
-            signIn("github");
-          }}
+          onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
         />
 
         <SocialButton
