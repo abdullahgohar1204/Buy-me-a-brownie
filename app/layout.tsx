@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-[#090a20] text-white">
         <SessionWrapper>
         <Navbar/>
-        <div className="flex-1 bg-[#090a20]">
+        <div className="flex-1 bg-[#090a20] px-4 sm:px-6 md:px-8">
         {children}
         </div>
         <Footer/>
